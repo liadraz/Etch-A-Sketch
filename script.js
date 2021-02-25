@@ -1,6 +1,7 @@
 let container = document.getElementById('container');
-let pixels = document.querySelectorAll('.pixel');
 let sizeButton = document.querySelector('.size-button');
+let resetButton = document.querySelector('.reset-button');
+
 
 /* Create Initial Grid of 16X16 */
 createGrid();
@@ -23,7 +24,8 @@ function createPixel() {
     container.appendChild(pixel);
 }
 
-/* While Hover Change The Pixels Color */
+
+/* While Hover the Pixels Colors change*/
 window.addEventListener('mouseover', changePixelsColor);
 
 function changePixelsColor(e) {
@@ -33,14 +35,42 @@ function changePixelsColor(e) {
 }
 
 
+/* Change Grid Divition Button */
+sizeButton.addEventListener('click', changeGridSize);
 
-
-
-
-/* sizeButton.addEventListener('click', createGrid);
+function changeGridSize() {
+    let squreNumber = getGridSize();
+    let grid = Math.pow(squreNumber, 2);
+    
+    container.style.gridTemplateColumns = `repeat(${squreNumber} , 1fr)`;
+    container.style.gridTemplateRows = `repeat(${squreNumber} , 1fr)`;
+    
+    removeGridDivs()
+    for (let i = 0; i < grid; i++) {
+        createPixel();
+    }
+}
 
 function getGridSize() {
-    let rowNumber = prompt('Enter Grid size: ');
-    return rowNumber;
+    let lineNumber = prompt('Enter Grid size: ');
+    return lineNumber;
 }
- */
+
+function removeGridDivs() {
+    let divsRemove = document.querySelectorAll('.pixel');
+    for (let i = 0; i < divsRemove.length; i++) {
+        divsRemove[i].remove();
+    }
+}
+
+
+/* Reset Grid Button */
+resetButton.addEventListener('click', resetGrid);
+
+function resetGrid() {
+    let pixels = document.querySelectorAll('.pixel');
+    pixels.forEach(pixel => pixel.classList.remove('single-color'));
+}
+
+
+
