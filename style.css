@@ -9,6 +9,7 @@ h1 {
     margin: 2rem;
     text-align: center;}
 
+
 /* Grid Box */
 #container {
     display: grid;
@@ -32,7 +33,11 @@ h1 {
 }
 
 .single-color {
-    background: coral;
+    background: rgb(85, 82, 81);
+}
+
+.rainbow {
+    
 }
 
 
@@ -52,4 +57,8 @@ h1 {
 
 .style-button:hover {
     background-color: cornflowerblue;
+}
+
+.on {
+    background-color: brown;
 }
