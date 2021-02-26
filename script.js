@@ -33,14 +33,43 @@ function createPixel() {
 
 
 
+
 /* While Hover the Pixels Colors change*/
 window.addEventListener('mouseover', changePixelsBehaviour);
 
 function changePixelsBehaviour(e) {
+
     if (e.target.classList.contains('pixel')) {
-        e.toElement.classList.add('single-color');
+
+        if (classicBtn.classList.contains('clss')) {
+            e.toElement.style.background = "rgb(85, 82, 81)";
+        }
+
+        if (rainbowBtn.classList.contains('pride')) {
+            let R = Math.floor(Math.random() * 256);
+            let G = Math.floor(Math.random() * 256);
+            let B = Math.floor(Math.random() * 256);
+            let bgRandomColor = `rgb(${R} , ${G}, ${B})`;
+            e.toElement.style.background = bgRandomColor;
+        }
+
+/*         if (addGrayBtn.classList.contains('gray')) {
+
+            if (addTen < 230) {
+                addTen -= - 25;
+                console.log(addTen)
+            } else {
+                addTen = 230;
+            }
+
+            let addGrayColor = `rgb(${addTen} , ${addTen}, ${addTen})`;
+            e.toElement.style.background = addGrayColor;
+        } */
     }
 }
+
+
+
 
 /* Choose different color modes */
 window.addEventListener('click', switchButtons);
@@ -49,23 +78,25 @@ function switchButtons(e) {
     let currentIdButton = e.target.id;
 
     let mainButtons = document.querySelectorAll('.style-button');
-    mainButtons.forEach(btn => btn.classList.remove('on'));
+    mainButtons.forEach(btn => btn.classList.remove('on', 'clss', 'pride', 'gray'));
 
     switch (currentIdButton) {
         case 'classic':
-            classicBtn.classList.add('on');
+            classicBtn.classList.add('on', 'clss');
             break;
         case 'rainbow':
-            rainbowBtn.classList.add('on');
+            rainbowBtn.classList.add('on', 'pride');
             break;
         case 'add-gray':
-            addGrayBtn.classList.add('on');
+            addGrayBtn.classList.add('on', 'gray');
             break;
         case 'pick-color':
             pickAColorBtn.classList.add('on');
             break;
     }
 }
+
+
 
 
 /* Change Grid Divition Button */
@@ -85,8 +116,10 @@ function changeGridSize() {
 }
 
 function getGridSize() {
+    let lineNumber;
     while (true) {
-        let lineNumber = prompt('Enter Grid size: ');
+        lineNumber = prompt('Enter Grid size: ');
+
         if (lineNumber > 0 && lineNumber <= 100) {
             break;
         }
@@ -109,7 +142,7 @@ resetButton.addEventListener('click', resetGrid);
 
 function resetGrid() {
     let pixels = document.querySelectorAll('.pixel');
-    pixels.forEach(pixel => pixel.classList.remove('single-color'));
+    pixels.forEach(pixel => pixel.style.removeProperty('background'));
 }
 
 

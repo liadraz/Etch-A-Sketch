@@ -32,14 +32,6 @@ h1 {
     border: 0.5px solid rgb(182, 182, 182);
 }
 
-.single-color {
-    background: rgb(85, 82, 81);
-}
-
-.rainbow {
-    
-}
-
 
 /* Buttons */
 .main-buttons {
@@ -61,4 +53,8 @@ h1 {
 
 .on {
     background-color: brown;
+}
+
+.white-board {
+    background: white;
 }
