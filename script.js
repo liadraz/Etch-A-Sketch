@@ -10,7 +10,6 @@ let pickAColorBtn = document.querySelector('#pick-color');
 
 /* Create Initial Grid of 16X16 */
 createGrid();
-classicBtn.classList.add('on');
 
 function createGrid() {
     let rowNumber = 16;
@@ -32,9 +31,7 @@ function createPixel() {
 }
 
 
-
-
-/* While Hover the Pixels Colors change*/
+/* While Hover the Pixels Colors change */
 window.addEventListener('mouseover', changePixelsBehaviour);
 
 function changePixelsBehaviour(e) {
@@ -42,7 +39,7 @@ function changePixelsBehaviour(e) {
     if (e.target.classList.contains('pixel')) {
 
         if (classicBtn.classList.contains('clss')) {
-            e.toElement.style.background = "rgb(85, 82, 81)";
+            e.toElement.style.background = "#494b4a";
         }
 
         if (rainbowBtn.classList.contains('pride')) {
@@ -52,23 +49,8 @@ function changePixelsBehaviour(e) {
             let bgRandomColor = `rgb(${R} , ${G}, ${B})`;
             e.toElement.style.background = bgRandomColor;
         }
-
-/*         if (addGrayBtn.classList.contains('gray')) {
-
-            if (addTen < 230) {
-                addTen -= - 25;
-                console.log(addTen)
-            } else {
-                addTen = 230;
-            }
-
-            let addGrayColor = `rgb(${addTen} , ${addTen}, ${addTen})`;
-            e.toElement.style.background = addGrayColor;
-        } */
     }
 }
-
-
 
 
 /* Choose different color modes */
@@ -87,16 +69,8 @@ function switchButtons(e) {
         case 'rainbow':
             rainbowBtn.classList.add('on', 'pride');
             break;
-        case 'add-gray':
-            addGrayBtn.classList.add('on', 'gray');
-            break;
-        case 'pick-color':
-            pickAColorBtn.classList.add('on');
-            break;
     }
 }
-
-
 
 
 /* Change Grid Divition Button */
@@ -135,8 +109,6 @@ function removeGridDivs() {
 }
 
 
-
-
 /* Reset Grid Button */
 resetButton.addEventListener('click', resetGrid);
 
@@ -144,26 +116,6 @@ function resetGrid() {
     let pixels = document.querySelectorAll('.pixel');
     pixels.forEach(pixel => pixel.style.removeProperty('background'));
 }
-
-
-
-/* 
-V    1. create a condition grid cannot be greater than 100 and 
-V    prompt again if user is not giving 1-100 integer
-
-2. V buttons should be on/off while clicked -
-
-    a. if button color clicked == single color will fill the pixels
-    b. RGB == rainboe colors
-    c gray == 10% of brightness will added to the pixel color
-    D. pick your own color.
-
-3. while clicking the right click mouse button erase pixel. 
-
-Design :
-1. Make it responsive
-2. Apply UI colors and stuff
-*/
 
 
 
