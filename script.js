@@ -1,11 +1,11 @@
-let container = document.getElementById('container');
-let sizeButton = document.querySelector('.size-button');
-let resetButton = document.querySelector('.reset-button');
+const container = document.getElementById('container');
+const sizeButton = document.querySelector('.size-button');
+const resetButton = document.querySelector('.reset-button');
 
-let classicBtn = document.querySelector('#classic');
-let rainbowBtn = document.querySelector('#rainbow');
-let addGrayBtn = document.querySelector('#add-gray');
-let pickAColorBtn = document.querySelector('#pick-color');
+const classicBtn = document.querySelector('#classic');
+const rainbowBtn = document.querySelector('#rainbow');
+const addGrayBtn = document.querySelector('#add-gray');
+const pickAColorBtn = document.querySelector('#pick-color');
 
 
 /* Create Initial Grid of 16X16 */
@@ -116,7 +116,3 @@ function resetGrid() {
     let pixels = document.querySelectorAll('.pixel');
     pixels.forEach(pixel => pixel.style.removeProperty('background'));
 }
-
-
-
-
