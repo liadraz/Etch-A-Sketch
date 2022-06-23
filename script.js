@@ -32,14 +32,14 @@ function createPixel() {
 
 
 /* While Hover the Pixels Colors change */
-window.addEventListener('mouseover', changePixelsBehaviour);
+window.addEventListener('mouseover', changePixelsBehavior);
 
-function changePixelsBehaviour(e) {
+function changePixelsBehavior(e) {
 
     if (e.target.classList.contains('pixel')) {
 
         if (classicBtn.classList.contains('clss')) {
-            e.toElement.style.background = "#494b4a";
+            e.target.style.background = "#494b4a";
         }
 
         if (rainbowBtn.classList.contains('pride')) {
@@ -47,7 +47,7 @@ function changePixelsBehaviour(e) {
             let G = Math.floor(Math.random() * 256);
             let B = Math.floor(Math.random() * 256);
             let bgRandomColor = `rgb(${R} , ${G}, ${B})`;
-            e.toElement.style.background = bgRandomColor;
+            e.target.style.background = bgRandomColor;
         }
     }
 }
@@ -73,15 +73,15 @@ function switchButtons(e) {
 }
 
 
-/* Change Grid Divition Button */
+/* Change Grid Division Button */
 sizeButton.addEventListener('click', changeGridSize);
 
 function changeGridSize() {
-    let squreNumber = getGridSize();
-    let grid = Math.pow(squreNumber, 2);
+    let squareNumber = getGridSize();
+    let grid = Math.pow(squareNumber, 2);
     
-    container.style.gridTemplateColumns = `repeat(${squreNumber} , 1fr)`;
-    container.style.gridTemplateRows = `repeat(${squreNumber} , 1fr)`;
+    container.style.gridTemplateColumns = `repeat(${squareNumber} , 1fr)`;
+    container.style.gridTemplateRows = `repeat(${squareNumber} , 1fr)`;
     
     removeGridDivs()
     for (let i = 0; i < grid; i++) {
