@@ -1,6 +1,7 @@
 # ETCH-A-SKETCH
 
-  A pretty neat toy to flex my javascript DOM manipulation skills. 
-  A browser version of something between a sketchpad and an Etch-A-Sketch.
+A browser version of the classic Etch-A-Sketch game. <br>
+Project to flex my javascript DOM manipulation skills.
 
-by The Odin Project.
+
+> The project is part of a full-stack course by the open source 'Odin Project'.
